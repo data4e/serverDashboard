@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'common',
-    'monitor'
+    'monitor',
+    'dwebsocket'
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'dwebsocket.middleware.WebSocketMiddleware',
 ]
 
 ROOT_URLCONF = 'dashboard.urls'
@@ -125,3 +127,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+
+SIMPLEUI_CONFIG = {
+    'system_keep': True,
+    # 'menu_display': ['Simpleui', '测试', '权限认证', '动态菜单测试'],
+}
