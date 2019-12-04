@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common',
     'monitor',
-    'dwebsocket'
+    # 'dwebsocket'
 ]
 
 MIDDLEWARE = [
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'dwebsocket.middleware.WebSocketMiddleware',
+    # 'dwebsocket.middleware.WebSocketMiddleware',
 ]
 
 ROOT_URLCONF = 'dashboard.urls'
