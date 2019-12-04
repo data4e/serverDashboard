@@ -23,3 +23,7 @@ class ServerInfo(BaseModel):
 
     def __str__(self):
         return self.name
+
+
+class Test(BaseModel):
+    pass
