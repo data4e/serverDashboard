@@ -1,9 +1,7 @@
 syntax = "proto3";
 package order;
+
 message OrderRequest {
-    string phone = 1;
-    string price = 2;
-    map<string, string> request_arg = 3;
 }
 
 message JSONResponse{
@@ -11,5 +9,9 @@ message JSONResponse{
 }
 
 service ServerInfoHandle {
-    rpc create_order (OrderRequest) returns (JSONResponse) {}
+    rpc get_cpu_info (OrderRequest) returns (JSONResponse) {}
+    rpc get_memo_info (OrderRequest) returns (JSONResponse) {}
+    rpc get_net_info (OrderRequest) returns (JSONResponse) {}
+    rpc get_sys_info (OrderRequest) returns (JSONResponse) {}
 }
+

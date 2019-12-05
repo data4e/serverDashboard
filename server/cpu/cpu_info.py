@@ -1,11 +1,12 @@
 # coding=utf-8
 import psutil
-from threading import Timer
 
 
-class Cpu:
-    @staticmethod
-    def cpu_info():
+class Cpu(object):
+    def __init__(self):
+        pass
+
+    def cpu_info(self):
         print "--------------服务器信息查询------------------"
 
         print "CPU频率：" + psutil.cpu_freq().__str__()
@@ -23,13 +24,10 @@ class Cpu:
         print "交换区内存总量：" + (swap.total / 1024 / 1024 / 1024).__str__() + "GB"
         print "交换区内存已使用：" + (swap.used / 1024 / 1024 / 1024).__str__() + "GB"
 
-    # t = Timer(5, cpu_info)
-    # t.start()
+        # t = Timer(5, cpu_info)
+        # t.start()
 
-    print "--------------服务器信息查询结束------------------"
-
-    def __init__(self):
-        pass
+        print "--------------服务器信息查询结束------------------"
 
     if __name__ == '__main__':
         cpu_info()
