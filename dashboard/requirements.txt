@@ -2,3 +2,6 @@ Django==2.2.8
 django-simpleui==3.4
 dwebsocket==0.5.11
 six==1.13.0
+grpcio ==1.25.0
+grpcio-tools ==1.25.0
+protobuf ==3.11.1

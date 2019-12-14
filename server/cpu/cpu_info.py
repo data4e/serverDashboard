@@ -30,4 +30,4 @@ class Cpu(object):
         print "--------------服务器信息查询结束------------------"
 
     if __name__ == '__main__':
-        cpu_info()
+        cpu_info(self=1)
