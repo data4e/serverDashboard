@@ -4,7 +4,7 @@ import time
 from concurrent import futures
 import dashboard_pb2
 import dashboard_pb2_grpc
-from cpu import cpu_info
+from server import server
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 _HOST = 'localhost'
@@ -13,12 +13,8 @@ _PORT = '8080'
 
 class FormatData(dashboard_pb2_grpc.FormatDataServicer):
     def DoFormat(self, request, context):
-        str = request.text
+        str = server.getServerInfo()
         return dashboard_pb2.Data(text=str.upper())
-
-    def CpuInfo(self, request, context):
-        str = cpu_info.cpu_info()
-        return cpu_info.cpu_info()
 
 
 def serve():

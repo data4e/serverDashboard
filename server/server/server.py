@@ -4,26 +4,24 @@ import json
 
 
 def getServerInfo():
-    # 获取CPU信息
-    print psutil.cpu_count()     # 逻辑核心数
-    print psutil.cpu_stats()
-    print psutil.cpu_count(logical=True)    # CPU 物理核心数
-    print psutil.cpu_times()    # 统计CPU的用户／系统／空闲时间：
-    print psutil.cpu_percent(interval=1, percpu=True)
 
-    # 获取内存信息
-    print psutil.virtual_memory()  # 物理内存
-    print psutil.swap_memory()  # 交换内存
-
-    # 磁盘信息
-    print psutil.disk_partitions()
-    print psutil.disk_usage("/")
-    print psutil.disk_io_counters()
-
-    # 网络信息
-    print psutil.net_io_counters()
-    print psutil.net_if_addrs()
-    
-
-if __name__ == '__main__':
-    getServerInfo()
+    result = {
+        'cpu': {
+            'physicalCores': psutil.cpu_count(),
+            'logicalCores': psutil.cpu_count(logical=True),
+            'usage': psutil.cpu_percent(interval=1)
+        },
+        'memory': {
+            'total': psutil.virtual_memory().total / 1024 / 1024 / 1024,
+            'used': psutil.virtual_memory().used / 1024 / 1024 / 1024
+        },
+        'disk': {
+            'total': psutil.disk_usage("/").total / 1024 / 1024 / 1024,
+            'used': psutil.disk_usage("/").used / 1024 / 1024 / 1024
+        },
+        'netWork': {
+            'upLink': psutil.net_io_counters().bytes_sent / 1024,
+            'down': psutil.net_io_counters().bytes_recv / 1024
+        }
+    }
+    return json.dumps(result)
